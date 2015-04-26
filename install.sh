@@ -16,7 +16,7 @@ virt-install \
 --disk size=4,path=/var/lib/libvirt/images/${1}.img,bus=virtio,cache=none \
 --initrd-inject=preseed.cfg \
 --initrd-inject=late.sh \
---location http://mirrors.cat.pdx.edu/debian/dists/jessie/main/installer-amd64/ \
+--location http://ftp.de.debian.org/debian/dists/jessie/main/installer-amd64/ \
 --os-type=linux \
 --virt-type=kvm \
 --controller usb,model=none \
