@@ -1,6 +1,7 @@
-#!/bin/sh
+#!/bin/sh -e
  
-# A script to install debian jessie on a KVM guest
+# A script to create debian VM as a KVM guest using virt-install in fully
+# automated way based on preseed.cfg
 
 # Domain is necessary in order to avoid debian installer to
 # require manual domain entry during the install.
@@ -16,7 +17,19 @@ LINUX_VARIANT="debian9"
 
 if [ $# -lt 1 ]
 then
-	echo "Usage: $0 <guest-name> [mac-address]"
+	cat <<EOF
+Usage: $0 <GUEST_NAME> [MAC_ADDRESS]"
+
+  GUEST_NAME    used as guest hostname, name of the VM and image file name
+  MAC_ADDRESS   allows to use specific MAC on the network, this is helpful
+                when DHCP server expects your guest to have predefined MAC
+
+Examples:
+
+  $0 backend 52:54:00:bf:b3:86 # create guest named "backend" with given MAC
+
+  $0 wow # create guest named "wow" with random MAC
+EOF
 	exit 1
 fi
 
