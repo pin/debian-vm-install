@@ -3,7 +3,8 @@
 # A script to install debian jessie on a KVM guest
 
 DOMAIN="dp-net.com" # See late.sh for more domain name hardcodes
- 
+DIST_URL="http://mirrors.cat.pdx.edu/debian/dists/jessie/main/installer-amd64/"
+
 if [ $# -lt 1 ]
 then
 	echo "Usage: $0 <guest-name> [mac-address]"
@@ -27,7 +28,7 @@ virt-install \
 --initrd-inject=preseed.cfg \
 --initrd-inject=late.sh \
 --initrd-inject=postinst.tar.gz \
---location http://ftp.de.debian.org/debian/dists/jessie/main/installer-amd64/ \
+--location ${DIST_URL} \
 --os-type=linux \
 --virt-type=kvm \
 --controller usb,model=none \
