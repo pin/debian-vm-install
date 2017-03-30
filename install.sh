@@ -2,8 +2,17 @@
  
 # A script to install debian jessie on a KVM guest
 
-DOMAIN="dp-net.com" # See late.sh for more domain name hardcodes
-DIST_URL="http://mirrors.cat.pdx.edu/debian/dists/jessie/main/installer-amd64/"
+# Domain is necessary in order to avoid debian installer to
+# require manual domain entry during the install.
+DOMAIN=`/bin/hostname -d` # Use domain of the host system
+#DOMAIN="dp-net.com" # Alternatively, hardcode domain
+# NB: See postinst.sh for ability to override domain received from
+# DHCP during the install.
+
+#DIST_URL="http://ftp.de.debian.org/debian/dists/stretch/main/installer-amd64/"
+DIST_URL="https://d-i.debian.org/daily-images/amd64/"
+LINUX_VARIANT="debian9"
+# NB: Also see preseed.cfg for debian mirror hostname.
 
 if [ $# -lt 1 ]
 then
@@ -33,7 +42,8 @@ virt-install \
 --initrd-inject=postinst.sh \
 --initrd-inject=postinst.tar.gz \
 --location ${DIST_URL} \
---os-type=linux \
+--os-type linux \
+--os-variant ${LINUX_VARIANT} \
 --virt-type=kvm \
 --controller usb,model=none \
 --graphics none \
