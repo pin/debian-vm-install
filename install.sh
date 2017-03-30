@@ -30,7 +30,7 @@ virt-install \
 --vcpus=2 \
 --disk size=16,path=/var/lib/libvirt/images/${1}.img,bus=virtio,cache=none \
 --initrd-inject=preseed.cfg \
---initrd-inject=late.sh \
+--initrd-inject=postinst.sh \
 --initrd-inject=postinst.tar.gz \
 --location ${DIST_URL} \
 --os-type=linux \
