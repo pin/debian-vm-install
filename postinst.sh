@@ -22,8 +22,8 @@ cat /tmp/postinst/authorized_keys > /home/pin/.ssh/authorized_keys
 chown -R pin:pin /home/pin/.ssh
 
 # Install collectd and config.
-apt-get install -y collectd-core
-cp /tmp/postinst/collectd.conf /etc/collectd/
+#apt-get install -y collectd-core
+#cp /tmp/postinst/collectd.conf /etc/collectd/
 
 # Remove some non-essential packages.
 #DEBIAN_FRONTEND=noninteractive apt-get purge -y nano gcc-4.8-base ispell laptop-detect tasksel dictionaries-common emacsen-common
