@@ -9,7 +9,7 @@ for unattended installation and custom configuration using **preseed**
 config in order to create freshly installed Debian KVM guest.
 
 ```
-Usage: ./install.sh <GUEST_NAME> [MAC_ADDRESS]"
+Usage: ./install.sh <GUEST_NAME> [MAC_ADDRESS]
 
   GUEST_NAME    used as guest hostname, name of the VM and image file name
   MAC_ADDRESS   allows to use specific MAC on the network, this is helpful
