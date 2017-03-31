@@ -26,7 +26,7 @@ chown -R pin:pin /home/pin/.ssh
 #cp /tmp/postinst/collectd.conf /etc/collectd/
 
 # Remove some non-essential packages.
-#DEBIAN_FRONTEND=noninteractive apt-get purge -y nano gcc-4.8-base ispell laptop-detect tasksel dictionaries-common emacsen-common
+DEBIAN_FRONTEND=noninteractive apt-get purge -y nano laptop-detect tasksel dictionaries-common emacsen-common iamerican ibritish ienglish-common ispell
 
 # Set domain name in hosts file
 #sed -i 's/127.0.1.1\t\([a-z]*\).*/127.0.1.1\t\1\.dp\-net\.com\t\1/' /etc/hosts
