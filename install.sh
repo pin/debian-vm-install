@@ -40,7 +40,7 @@ then
 fi
 
 # Fetch SSH key from github.
-wget https://github.com/pin.keys -O postinst/authorized_keys
+wget -q https://github.com/pin.keys -O postinst/authorized_keys
 
 # Create tarball with some stuff we would like to install into the system.
 tar cvfz postinst.tar.gz postinst
