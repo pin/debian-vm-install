@@ -1,8 +1,4 @@
-# Debian Stretch unattended VM guest installer
-
-*While Debian Stretch is not released yet, script uses `daily-images`.
-If you want to use Debian Jessie (e.g. current stable) please check out
-release v8.0 or update DIST_URL*
+# Debian Bookworm unattended VM guest installer
 
 Simple script that uses **virt-install** and configures Debian installer
 for unattended installation and custom configuration using **preseed**
@@ -20,16 +16,16 @@ Guest OS is minimal no-GUI Debian installation configured with serial console
 for ability to `virsh console <GUEST_NAME>`, and OpenSSH server with your SSH
 key or/and password pre-configured.
 
-It is easy to change the script to add any extra packages and configuration
-files during unattended installation.
-
-Actually, the main point of sharing this script is to provide an example of
-unattended Debian VM creation or a base for your own script.
+It is easy to change the script to add any extra packages and
+configuration files during unattended installation. The main point of
+sharing this script is to provide an example of unattended Debian VM
+creation or a base for your own script.
 
 Prerequisites
 -------------
- * virt-install: `apt-get install virtinst`
- * KVM/qemu: `apt-get install qemu-kvm libvirt-daemon # something else?`
+```
+apt-get install wget virtinst libvirt-daemon-system
+```
 
 Things to check before the first use
 ------------------------------------
@@ -41,19 +37,24 @@ Things to check before the first use
    Update your login name in `postinst.sh`, where SSH key is installed.
  * It's worth considering to enable password authentication in `preseed.cfg`
    at least during first run so you could `virsh console <GUEST_NAME>` in case
-   network connection in guest does not comes up with DHCP or IP of the guest
+   network connection in guest does not come up with DHCP or IP of the guest
    is unclear.
  * Check RAM size and disk size for the guest in arguments to `virst-install` in
-   `install.sh` and modify them if needed.
- * Add `apt-get install <your_favorite>` or whatever you want to `postinst.sh`
+   `install.sh` and modify them as needed.
+ * Add `apt-get install -y <your_favorite>` or whatever you want to `postinst.sh`
    and any configuration files you want to add to the guest into `postinst`
    directory.
 
 Network configuration
 ---------------------
-Script works best with bridged network, when guests are able to use DHCP
-server. In case you want something else, replace `br0` in arguments to
-virt-install in `install.sh`.
+Script works with bridged network, guests use DHCP and show up in local network.
+In case you want something else, replace `br0` in arguments to virt-install
+in `install.sh`.
+
+Before setting bridged network up:
+```
+apt-get install brigde-utils
+```
 
 Example of network configuration in `/etc/network/interfaces`:
 ```

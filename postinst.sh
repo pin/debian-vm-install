@@ -34,3 +34,8 @@ DEBIAN_FRONTEND=noninteractive apt-get purge -y nano laptop-detect tasksel dicti
 # Avoid using DHCP-server provided domain name.
 #sed -i 's/#supersede.*/supersede domain-name "dp-net.com";/' /etc/dhcp/dhclient.conf
 
+# Do not install recommended packages by default
+cat > /etc/apt/apt.conf.d/01norecommend << EOF
+APT::Install-Recommends "0";
+APT::Install-Suggests "0";
+EOF
