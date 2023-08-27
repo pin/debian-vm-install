@@ -5,7 +5,7 @@
 
 # Domain is necessary to avoid debian installer to
 # require manual domain entry during the install.
-DOMAIN=`/bin/hostname -d` # Use domain of the host system
+DOMAIN=`/bin/uname -n` # Use domain of the host system
 #DOMAIN="dp-net.com" # Alternatively, hardcode domain
 # NB: See postinst.sh for ability to override domain received from
 # DHCP during the install.
