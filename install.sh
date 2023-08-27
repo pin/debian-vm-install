@@ -10,6 +10,8 @@ DOMAIN=`/bin/hostname -d` # Use domain of the host system
 # NB: See postinst.sh for ability to override domain received from
 # DHCP during the install.
 
+GITHUB_USERNAME='your-github-username'
+
 DIST_URL="http://ftp.debian.org/debian/dists/bookworm/main/installer-amd64/"
 LINUX_VARIANT="debiantesting"
 # NB: Also see preseed.cfg for debian mirror hostname.
@@ -39,7 +41,7 @@ then
 fi
 
 # Fetch SSH key from github.
-wget -q https://github.com/pin.keys -O postinst/authorized_keys
+wget -q https://github.com/${GITHUB_USERNAME}.keys -O postinst/authorized_keys
 
 # Create tarball with some stuff we would like to install into the system.
 tar cvfz postinst.tar.gz postinst
