@@ -16,19 +16,19 @@ LINUX_VARIANT="debiantesting"
 
 if [ $# -lt 1 ]
 then
-	cat <<EOF
-Usage: $0 <GUEST_NAME> [MAC_ADDRESS]"
+	cat <<- EOF
+	Usage: $0 <GUEST_NAME> [MAC_ADDRESS]"
 
-  GUEST_NAME    used as guest hostname, name of the VM and image file name
-  MAC_ADDRESS   allows to use specific MAC on the network, this is helpful
-                when DHCP server expects your guest to have predefined MAC
+	  GUEST_NAME    used as guest hostname, name of the VM and image file name
+	  MAC_ADDRESS   allows to use specific MAC on the network, this is helpful
+	                when DHCP server expects your guest to have predefined MAC
 
-Examples:
+	Examples:
 
-  $0 backend 52:54:00:bf:b3:86 # create guest named "backend" with given MAC
+	  $0 backend 52:54:00:bf:b3:86 # create guest named "backend" with given MAC
 
-  $0 wow # create guest named "wow" with random MAC
-EOF
+	  $0 wow # create guest named "wow" with random MAC
+	EOF
 	exit 1
 fi
 
