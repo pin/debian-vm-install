@@ -24,7 +24,7 @@ creation or a base for your own script.
 Prerequisites
 -------------
 ```
-apt-get install wget virtinst libvirt-daemon-system
+apt-get install wget virtinst libvirt-daemon-system qemu-system-x86
 ```
 
 Things to check before the first use
@@ -61,15 +61,13 @@ Example of network configuration in `/etc/network/interfaces`:
 auto lo
 iface lo inet loopback
 
-auto eth0 # replace eth0 with your actual interface name
-iface eth0 inet manual
-
 auto br0
 iface br0 inet dhcp
+        bridge_hw eth0
         bridge_ports eth0
         bridge_stp off
-        bridge_fd 0
-        bridge_maxwait 0
+        bridge_fd 1
+        bridge_maxage 12
 ```
 
 More Info
