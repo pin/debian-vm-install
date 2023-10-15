@@ -1,5 +1,5 @@
 #!/bin/sh -e
- 
+
 # Create debian VM as a KVM guest using virt-install in fully
 # automated way based on preseed.cfg
 
@@ -45,7 +45,7 @@ wget -q https://github.com/${GITHUB_USERNAME}.keys -O postinst/authorized_keys
 
 # Create tarball with some stuff we would like to install into the system.
 tar cvfz postinst.tar.gz postinst
- 
+
 virt-install \
 --connect=qemu:///system \
 --name=${1} \
