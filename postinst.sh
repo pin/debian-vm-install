@@ -26,7 +26,7 @@ chown -R pin:pin /home/pin/.ssh
 #cp /tmp/postinst/collectd.conf /etc/collectd/
 
 # Remove some non-essential packages.
-DEBIAN_FRONTEND=noninteractive apt-get purge -y nano laptop-detect tasksel dictionaries-common emacsen-common iamerican ibritish ienglish-common ispell
+DEBIAN_FRONTEND=noninteractive apt-get purge -y nano laptop-detect tasksel dictionaries-common emacsen-common iamerican ibritish ienglish-common ispell wamerican intel-microcode iucode-tool discover discover-data libdiscover2 libusb-1.0-0
 
 # Set domain name in hosts file
 #sed -i 's/127.0.1.1\t\([a-z]*\).*/127.0.1.1\t\1\.dp\-net\.com\t\1/' /etc/hosts
@@ -34,8 +34,11 @@ DEBIAN_FRONTEND=noninteractive apt-get purge -y nano laptop-detect tasksel dicti
 # Avoid using DHCP-server provided domain name.
 #sed -i 's/#supersede.*/supersede domain-name "dp-net.com";/' /etc/dhcp/dhclient.conf
 
-# Do not install recommended packages by default
+# Do not install recommended packages by default.
 cat > /etc/apt/apt.conf.d/01norecommend << EOF
 APT::Install-Recommends "0";
 APT::Install-Suggests "0";
 EOF
+
+# Make "reboot" command work.
+apt-get install -y python3 dbus

@@ -24,7 +24,7 @@ creation or a base for your own script.
 Prerequisites
 -------------
 ```
-apt-get install wget virtinst libvirt-daemon-system qemu-system-x86
+apt-get install wget virtinst libvirt-daemon-system qemu-system-x86 qemu-utils
 ```
 
 Things to check before the first use
