@@ -1,4 +1,4 @@
-# Debian Bookworm unattended VM guest installer
+# Debian Trixie unattended VM guest installer
 
 Simple script that uses **virt-install** and configures Debian installer
 for unattended installation and custom configuration using **preseed**

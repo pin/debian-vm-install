@@ -12,7 +12,7 @@ DOMAIN=`/bin/hostname -d` # Use domain of the host system
 
 GITHUB_USERNAME='your-github-username'
 
-DIST_URL="http://ftp.debian.org/debian/dists/bookworm/main/installer-amd64/"
+DIST_URL="http://ftp.debian.org/debian/dists/trixie/main/installer-amd64/"
 LINUX_VARIANT="debiantesting"
 # NB: Also see preseed.cfg for debian mirror hostname.
 
