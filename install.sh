@@ -51,7 +51,7 @@ virt-install \
 --name=${1} \
 --ram=1024 \
 --vcpus=2 \
---disk size=16,path=/var/lib/libvirt/images/${1}.img,bus=virtio,cache=none \
+--disk size=16,path=/var/lib/libvirt/images/${1}.qcow2,bus=virtio,cache=none,format=qcow2,discard=unmap \
 --initrd-inject=preseed.cfg \
 --initrd-inject=postinst.sh \
 --initrd-inject=postinst.tar.gz \
